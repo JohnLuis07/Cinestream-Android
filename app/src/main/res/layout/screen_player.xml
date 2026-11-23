@@ -1,0 +1,140 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:theme="@style/Theme.CineStream"
+    tools:context=".PlayerActivity">
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="64dp"
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
+
+            <ImageButton
+                android:id="@+id/close_button"
+                style="@style/CineIconButton"
+                android:src="@drawable/ic_back"
+                android:contentDescription="@string/back_browse" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="8dp">
+
+                <TextView
+                    style="@style/CineText"
+                    android:text="@string/now_watching"
+                    android:textColor="@color/accent"
+                    android:textSize="9sp"
+                    android:letterSpacing="0.12"
+                    android:fontFamily="sans-serif-medium" />
+
+                <TextView
+                    android:id="@+id/title"
+                    style="@style/CineText"
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="15sp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:layout_marginTop="4dp"
+                    tools:text="Midnight Atlas" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/reload_button"
+                style="@style/CineIconButton"
+                android:src="@drawable/ic_reload"
+                android:contentDescription="@string/reload_player" />
+
+            <ImageButton
+                android:id="@+id/expand_button"
+                style="@style/CineIconButton"
+                android:layout_marginStart="6dp"
+                android:src="@drawable/ic_fullscreen"
+                android:contentDescription="@string/fullscreen" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/video_stage"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:background="#000000"
+            android:keepScreenOn="true">
+
+            <WebView
+                android:id="@+id/web_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:visibility="gone" />
+
+            <TextView
+                android:id="@+id/video_status"
+                style="@style/CineText"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="28dp"
+                android:textSize="13sp"
+                android:lineSpacingExtra="4dp"
+                android:textColor="@color/text_secondary"
+                android:background="@color/surface"
+                android:accessibilityLiveRegion="polite"
+                tools:text="Your movie starts here" />
+
+            <ProgressBar
+                android:id="@+id/web_progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_gravity="top"
+                tools:visibility="gone" />
+        </FrameLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/episode_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="24dp"
+            android:clipToPadding="false"
+            android:scrollbars="none"
+            android:overScrollMode="never"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_player_details"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fullscreen_host"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:visibility="gone">
+
+        <ImageButton
+            android:id="@+id/exit_fullscreen_button"
+            style="@style/CineIconButton"
+            android:layout_gravity="top|end"
+            android:layout_margin="12dp"
+            android:src="@drawable/ic_close"
+            android:contentDescription="@string/exit_fullscreen" />
+    </FrameLayout>
+</FrameLayout>

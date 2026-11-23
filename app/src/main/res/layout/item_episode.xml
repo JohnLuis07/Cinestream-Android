@@ -1,0 +1,82 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="108dp"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:layout_marginBottom="10dp"
+    android:gravity="center_vertical"
+    android:background="@drawable/bg_button"
+    android:focusable="true"
+    android:clickable="true"
+    tools:theme="@style/Theme.CineStream"
+    tools:context=".PlayerActivity"
+    tools:selected="true">
+
+    <FrameLayout
+        android:layout_width="100dp"
+        android:layout_height="76dp"
+        android:background="@drawable/bg_card"
+        android:clipToOutline="true">
+
+        <ImageView
+            android:id="@+id/thumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/poster_placeholder"
+            android:importantForAccessibility="no" />
+
+        <TextView
+            android:id="@+id/episode_number"
+            style="@style/CineText"
+            android:layout_width="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_margin="6dp"
+            android:padding="4dp"
+            android:background="@drawable/bg_badge"
+            android:textSize="10sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            tools:text="E1" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="14dp">
+
+        <TextView
+            android:id="@+id/playing_badge"
+            style="@style/CineText"
+            android:text="@string/playing_badge"
+            android:textColor="@color/accent"
+            android:textSize="9sp"
+            android:letterSpacing="0.1"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:layout_marginBottom="5dp"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/CineText"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="2"
+            android:ellipsize="end"
+            tools:text="A New Beginning" />
+
+        <TextView
+            android:id="@+id/meta"
+            style="@style/CineText"
+            android:textSize="11sp"
+            android:textColor="@color/text_secondary"
+            android:layout_marginTop="6dp"
+            tools:text="48 min · 2026-11-01" />
+    </LinearLayout>
+</LinearLayout>

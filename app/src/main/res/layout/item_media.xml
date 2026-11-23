@@ -1,0 +1,65 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="6dp"
+    android:layout_marginBottom="14dp"
+    android:background="?android:attr/selectableItemBackground"
+    android:focusable="true"
+    android:clickable="true"
+    tools:theme="@style/Theme.CineStream"
+    tools:context=".MainActivity"
+    tools:background="@color/background"
+    tools:layout_width="180dp">
+
+    <FrameLayout
+        android:id="@+id/poster_frame"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:background="@drawable/bg_card"
+        android:clipToOutline="true">
+
+        <ImageView
+            android:id="@+id/poster"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/poster_placeholder"
+            android:importantForAccessibility="no" />
+
+        <TextView
+            android:id="@+id/rating"
+            style="@style/CineText"
+            android:layout_width="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_margin="8dp"
+            android:padding="6dp"
+            android:background="@drawable/bg_badge"
+            android:textColor="@color/rating"
+            android:textSize="10sp"
+            android:fontFamily="sans-serif-medium"
+            tools:text="★ 8.4" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/CineText"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="14sp"
+        android:minLines="2"
+        android:maxLines="2"
+        android:ellipsize="end"
+        tools:text="Midnight Atlas" />
+
+    <TextView
+        android:id="@+id/meta"
+        style="@style/CineText"
+        android:layout_marginTop="4dp"
+        android:textSize="11sp"
+        android:textColor="@color/text_secondary"
+        android:maxLines="1"
+        android:ellipsize="end"
+        tools:text="2026 · Series" />
+</LinearLayout>

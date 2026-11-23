@@ -1,0 +1,143 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    tools:theme="@style/Theme.CineStream"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="72dp"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp">
+
+        <ImageView
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:src="@drawable/ic_cinestream"
+            android:importantForAccessibility="no" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/CineText"
+                android:text="@string/brand"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.05" />
+
+            <TextView
+                style="@style/CineText"
+                android:text="@string/home_tagline"
+                android:textSize="11sp"
+                android:textColor="@color/text_secondary"
+                android:layout_marginTop="3dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="12dp">
+
+        <EditText
+            android:id="@+id/search_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_search"
+            android:paddingStart="52dp"
+            android:paddingEnd="48dp"
+            android:hint="@string/search_hint"
+            android:textColorHint="@color/text_secondary"
+            android:textSize="14sp"
+            android:inputType="text"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"
+            android:autofillHints="" />
+
+        <ImageButton
+            android:id="@+id/search_button"
+            style="@style/CineIconButton"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="4dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_search"
+            android:tint="@color/text_secondary"
+            android:contentDescription="@string/search" />
+
+        <ImageButton
+            android:id="@+id/clear_button"
+            style="@style/CineIconButton"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="2dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_close"
+            android:contentDescription="@string/clear"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/catalog_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        android:paddingBottom="20dp"
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        tools:itemCount="1"
+        tools:listitem="@layout/item_catalog_header"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/outline" />
+
+    <LinearLayout
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:background="@color/background">
+
+        <Button
+            android:id="@+id/discover_button"
+            style="@style/CineNavigation"
+            android:drawableTop="@drawable/ic_discover"
+            android:text="@string/discover" />
+
+        <Button
+            android:id="@+id/movies_button"
+            style="@style/CineNavigation"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:drawableTop="@drawable/ic_movies"
+            android:text="@string/movies" />
+
+        <Button
+            android:id="@+id/tv_button"
+            style="@style/CineNavigation"
+            android:drawableTop="@drawable/ic_tv"
+            android:text="@string/series_nav" />
+    </LinearLayout>
+</LinearLayout>

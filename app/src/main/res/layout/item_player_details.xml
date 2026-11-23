@@ -1,0 +1,186 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="22dp"
+    android:paddingBottom="12dp"
+    android:orientation="vertical"
+    tools:theme="@style/Theme.CineStream"
+    tools:context=".PlayerActivity"
+    tools:background="@color/background">
+
+    <TextView
+        android:id="@+id/selected_title"
+        style="@style/CineText"
+        android:textSize="21sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:lineSpacingExtra="3dp"
+        android:accessibilityLiveRegion="polite"
+        tools:text="S1 · E1 — A New Beginning" />
+
+    <TextView
+        android:id="@+id/overview"
+        style="@style/CineText"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/text_secondary"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:textSize="13sp"
+        android:lineSpacingExtra="4dp"
+        tools:text="An unexpected discovery changes everything for a young explorer."
+        tools:visibility="gone" />
+
+    <Button
+        android:id="@+id/more_button"
+        style="@style/CineButton"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:paddingStart="0dp"
+        android:paddingEnd="16dp"
+        android:text="@string/more"
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp"
+        tools:text="About this episode" />
+
+    <Button
+        android:id="@+id/source_button"
+        style="@style/CineButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:layout_marginTop="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:gravity="start|center_vertical"
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp"
+        tools:text="Vidsrc.to · Change source" />
+
+    <LinearLayout
+        android:id="@+id/source_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            style="@style/CineText"
+            android:text="@string/source_help"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:layout_marginTop="12dp"
+            android:lineSpacingExtra="3dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/source_list"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="8dp"
+            android:nestedScrollingEnabled="false"
+            android:scrollbars="none"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_choice"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tv_controls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/outline" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                style="@style/CineText"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/episodes"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/episode_count"
+                style="@style/CineText"
+                android:layout_width="wrap_content"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                tools:text="8 episodes" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/season_list"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="12dp"
+            android:nestedScrollingEnabled="false"
+            android:scrollbars="none"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_choice"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/previous_button"
+                style="@style/CineButton"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="@string/previous"
+                tools:alpha="0.35"
+                tools:enabled="false" />
+
+            <Button
+                android:id="@+id/next_button"
+                style="@style/CineButton"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/bg_accent"
+                android:text="@string/next" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/guide_status"
+            style="@style/CineText"
+            android:padding="14dp"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="12dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp"
+            android:lineSpacingExtra="3dp"
+            android:accessibilityLiveRegion="polite"
+            tools:visibility="gone" />
+
+        <Button
+            android:id="@+id/retry_button"
+            style="@style/CineButton"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginBottom="12dp"
+            android:text="@string/retry"
+            tools:visibility="gone" />
+    </LinearLayout>
+</LinearLayout>
