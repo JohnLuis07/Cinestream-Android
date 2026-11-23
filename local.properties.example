@@ -1,0 +1,6 @@
+# Copy to local.properties and set your own Android SDK path.
+# Windows paths should use forward slashes.
+sdk.dir=C:/Users/YOUR_USER/AppData/Local/Android/Sdk
+TMDB_API_KEY=
+TMDB_ACCESS_TOKEN=
+OMDB_API_KEY=
